@@ -8,9 +8,31 @@ const rl = readline.createInterface({
 });
 
 
-function rockPaperScissors(hand1, hand2) {
+function rockPaperScissors(PlayerHandOnehand1, hand2) {
 
-  // Write code here
+  // Write code here  
+  //These two variables declare the two players.
+  const Hand1 = 1;
+  const Hand2 = 1;
+  
+  if (Hand1 == 'rock' && Hand2 == 'paper' || Hand1 === 'paper' && Hand2 == 'scissors' || Hand1 == 'scissors' && Hand2 == 'rock') {
+    return "HAND1 is a LOSER"
+  }else
+  if (Hand1 == 'scissors' && Hand2 == 'rock' || Hand1 == 'rock' && Hand2 == 'paper' || Hand1 == 'scissors' && Hand2 == 'paper') {
+  return "HAND2 IS A LOSER"}
+  else if  (Hand1 === Hand2) 
+      return "it's a tie";
+}
+
+function getPrompt() {
+  rl.question('hand1: ', (answer1) => {
+    rl.question('hand2: ', (answer2) => {
+      console.log( rockPaperScissors(answer1, answer2) );
+      getPrompt();
+    });
+  });
+}
+
 
 }
 
