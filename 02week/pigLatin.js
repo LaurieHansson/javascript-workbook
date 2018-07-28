@@ -1,30 +1,24 @@
 
-// Local scope -- variables within a function
-// Global Scope -- variables declared outside a function but can be called inside.
- 
+// VARIABLES //
+// 1.) Variable that defines an array
+// 2.) Variable that defines a word
 
+// Methods //
+// Will need to break up strings into letters 
+// .split();
+// Will need to check to see if string letters are included in
+// array  .includes.
+// Will need to define character counts with indexing string characters
+// str.charAt())) 
+// Will need to push to results array 
+// .push
+// Will need to remove first item of array and returns it
+// .shift
+//  Will need if statement to check to see if word has certain vowels
+// will need to add ay to the end of the word with .join
 
-
-
-
-// variable that stores the word in an array should be local
-// const wordArray = []
-
-// const vowels = []
-// variable that stores the vowels in an array should be local
-
-// the new word variable should be local
-
-// Global scope -- this would be a variable defined outside of a 
-// function but can be called within the function
-// there needs to be some sort of new word that is built for this game 
-// and that would have to be called at multiple occasions-- I'll define it as 
-// let pigWord
-
-// First function is already defined, and this is where we write the code,
-// I will use the predefined function to console.log my algorhithim at the end
-//  Other two functions would be needed to check letters & vowels
-//  
+// Will need for loops to go through letters
+// Will need for loop to go through vowels
 'use strict';
 
 const assert = require('assert');
@@ -34,32 +28,34 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+const vowels = ['a', 'e', 'i', 'o', 'u'];
+
 
 function pigLatin(word) {
- // Word is first stored as an array [Local]
-    const Wordarray = word.split('');
-    // Vowels to test the word against [Local]
-    const vowels = ['a','e','i','o','u'];
-    // Create newWord var to hold reordered letters
-    let pigWord = ''; // [local]
-     // Loop through LETTERS in word
-        for(let y = 0; y < word.length-1; y++) {
-     // Loop through VOWELS in a word
-        for(let i = 0; i < vowels.length-1; i++) {
-    // check to see if any letters in new word match with the vowels
-            if(word[y] === vowels[i]) {
-                for(let x = y; x < word.length; x++){
-                    pigWord = pigWord + word[x];
-                }
-                for(let n = 0; n < y; n++){ 
-                    pigword = pigWord + word[n];
-                }
-                return pigWord + "ay";
-            }       
-        }
+ 
+  const word = str.split('');
+ //seperates the words into indvidual letters
+  if (vowels.includes(str.charAt[0])) {
+    return str += 'way';
+    //str[0] takes the first letter of an array 
+    // includes check to see if the first letter of 
+    //the word im working in will be included in the vowels
+    //in the vowels array. 
+  } else {
+    
+    for (let i = 0; i < str.length; i++) {
+      if (!vowels.includes(str[i])) {
+        word.push(result.shift());
+        // shift 
+      } else {
+        word.push('ay');
+        return word.join('');
+      }
     }
+  }
 }
-pigLatin("yay");
+
+console.log(translatePigLatin("javascript"));
 
 function getPrompt() {
   rl.question('word ', (answer) => {
