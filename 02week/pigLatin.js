@@ -1,18 +1,30 @@
-//local scope -- variables within a function
+
+// Local scope -- variables within a function
+// Global Scope -- variables declared outside a function but can be called inside.
+ 
+
+
+
+
+
 // variable that stores the word in an array should be local
 // const wordArray = []
+
 // const vowels = []
 // variable that stores the vowels in an array should be local
+
 // the new word variable should be local
+
 // Global scope -- this would be a variable defined outside of a 
 // function but can be called within the function
 // there needs to be some sort of new word that is built for this game 
 // and that would have to be called at multiple occasions-- I'll define it as 
 // let pigWord
+
 // First function is already defined, and this is where we write the code,
-/// I will use the predefined function to console.log my algorhithim at the end
-// Other two functions would be needed to check letters & vowels
-// 
+// I will use the predefined function to console.log my algorhithim at the end
+//  Other two functions would be needed to check letters & vowels
+//  
 'use strict';
 
 const assert = require('assert');
@@ -31,15 +43,15 @@ function pigLatin(word) {
     // Create newWord var to hold reordered letters
     let pigWord = ''; // [local]
      // Loop through LETTERS in word
-        for(var y = 0; y < word.length-1; y++) {
+        for(let y = 0; y < word.length-1; y++) {
      // Loop through VOWELS in a word
-        for(var i = 0; i < vowels.length-1; i++) {
+        for(let i = 0; i < vowels.length-1; i++) {
     // check to see if any letters in new word match with the vowels
             if(word[y] === vowels[i]) {
-                for(var x = y; x < word.length; x++){
+                for(let x = y; x < word.length; x++){
                     pigWord = pigWord + word[x];
                 }
-                for(var n = 0; n < y; n++){ 
+                for(let n = 0; n < y; n++){ 
                     pigword = pigWord + word[n];
                 }
                 return pigWord + "ay";
@@ -48,8 +60,6 @@ function pigLatin(word) {
     }
 }
 pigLatin("yay");
-
-
 
 function getPrompt() {
   rl.question('word ', (answer) => {
