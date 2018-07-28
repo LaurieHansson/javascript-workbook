@@ -1,87 +1,61 @@
 'use strict'
 
 
-//1. display the time and the dat
-const today =  new Date();
-console.log(today);
+//1. display the time and the date
+const today = new Date();
+const dd = today.getDate();
+const mm = today.getMonth()+1; //January is 0!
+const yyyy = today.getFullYear();
 
-const day = today.getDay();
-console.log(day);
+if(dd<10) {
+    dd = '0'+dd
+} 
 
-const dayOfTheWeek = ['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-console.log("It is : " + dayOfWeek[day]);
+if(mm<10) {
+    mm = '0'+mm
+} 
 
+today = mm + '/' + dd + '/' + yyyy;
+return today
 
-const hour = today.getHours();
-console.log('hour ' + hour);
-
-const minute = today.getMinutes();
-console.log('minutes ' + minute);
-
-const  second = today.getSeconds();
-console.log('seconds ' + second);
-
-
- // 2. returning the type of data type function
-  const ReturnTypeOf(input)=>{
-    return typeof(input);
- }
- console.log(typeof 42);
-// NUMBER DATA TYPE
-
-console.log(typeof 'Javascript is difficult');
-// STRING DATA TYPE
-
-console.log(typeof false);
-// BOOLEAN DATA TYPE
-
-
- // 3. turning a number to into a string 
-  const number = 10000;
-  const numberToString= number.ToString;
-  console.log(number);
+// 2. number to a string 
+ function numToString(num) {
+   return num.toString();
+ }  numToString(10);
  
- // 4. return the sum of two numbers
+
+ // 3.  return a string to number 
+const stringToNumber=(string){
+  return Number(string);
+}
+stringToNumber('900');
+
+
+ 
+ // 5. return the sum of two numbers
   const addition=(number1, number2) => {
    return number1 + number2;
   }
+
   addition(5,5);
- // 5.  return a string to number 
-   const stringToNumber=(string){
-     return Number(string);
-   }
-   stringToNumber('900');
- 
  
  // 6. two truths
  
-  const doubleTrue=()=>{
-   if(true && true){
-    return true;
-   }
- }
- // 7. single truth statement 
-   const = SingleTruth(amountOfPuppies)=> {
-   if (amountOfPuppies < 100) {
-    return "FIND MORE PUPPIES";
-  } else if (amountOfPuppies< 3000) {
-      return "WE HAVE TOO MANY PUPPIES"; }
-      else {
-    return "K this is a good amount of puppies";
-  }
-   }
+ if (input1 && input2) {
+  return true
+}
 
-   // 8. runs false 
+// 7. one truth 
+const testingTruth=() => {
 
-   const cats = 1;
-   const doggos = 1;
-   const noCatsOrDogs=()=>{
-   if(pizza && beer !== true){
-       console.log('False');
 
-    }
-     else {
+if ( y> 10) {
+  return "YES"
+} else {
+  return "NO"
+}}
 
-console.log("False");    }
-};
- noCatsOrDogs();
+const untrue(input1,input2) => {
+  if(!input1 && !input2){
+  return "untrue"
+  }}
