@@ -19,8 +19,8 @@ const rl = readline.createInterface({
 
 const rockPaperScissors=(a, b)=> {
   // make variables that allow the function to pass the test ie. lowercase and whitespace.
-  const hand1 = a.toLowerCase();
-  const hand2 = b.toLowerCase();
+  const hand1 = 0;
+  const hand2 = 0;
 
   //check for a tie
   if (hand1 === hand2) {
