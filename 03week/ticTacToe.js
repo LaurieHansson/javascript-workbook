@@ -1,5 +1,19 @@
 'use strict';
 
+
+/// Boards run horizontall & vertically 
+/// horizontally = row 
+// vertically = column
+
+// for horziontal wins, user needs to have 3 markers in one row
+// for vertical wins, user needs to have 3 markers in a coumn
+// for diagnol wins users will need to have 3 markers that utilize both 
+// columns and rows 
+
+// no two users can be in the same space 
+//  no blank spaces 
+// if there is a blank space, allow marker to be dropped.
+
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -13,7 +27,8 @@ let board = [
 ];
 
 let playerTurn = 'X';
-
+// let playerOne = 'X';
+let playerTwo = 'O';
 function printBoard() {
   console.log('   0  1  2');
   console.log('0 ' + board[0].join(' | '));
@@ -24,24 +39,42 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+
+
 }
 
 function verticalWin() {
-  // Your code here
-}
+  /// 0, 0 marks an open board /// (1, 0)(1,0) marks one marked spot, (2,0)(0,2) marks 2.. etc  
+  return ((board[0][0] === playerOne && board[1][0] === playerOne && board[2][0] === playerOne) || (board[0][1]
+    === playerOne && board[1][1] === playerOne && board[2][1] === playerOne) || (board[0][2] === playerOne
+    && board[1][2] === playerOne && board[2][2] === playerOne) || (board[0][0] === playerTwo && board[1][0]
+    === playerTwo && board[2][0] === playerTwo) || (board[0][1] === playerTwo && board[1][1] === playerTwo &&
+    board[2][1] === playerTwo) || (board[0][2] === playerTwo && board[1][2] === playerTwo && board[2][2] === playerTwo))
 
-function diagonalWin() {
-  // Your code here
 }
+  /// 0, 0 marks an open board /// (1, 0)(1,0) marks one marked spot, (2,0)(0,2) marks 2.. diagnol wins will have 2 marked rows and 1 col or 2 cols 1 row  
+  function diagonalWin() {
+  return ((board[0][0] === playerOne && board[1][1] === playerOne && board[2][2] === playerOne) || (board[2][0]
+    === playerOne && board[1][1] === playerOne && board[0][2] === playerOne) || (board[0][0] === playerTwo && board[1][1]
+    === playerTwo && board[2][2] === playerTwo) || (board[2][0] === playerTwo && board[1][1] === playerTwo &&
+    board[0][2] === playerTwo))
 
+}
+//  check through each win type and  create a return  
 function checkForWin() {
-  // Your code here
-}
+  return (verticalWin() ) || diagonalWin() || horizontalWin()}
+  
+  const ticTacToe = (row, column) => {
+    if (board[column][row] !== ' '){
+      
+    }
+      if (playerTurn === 'X') {
+        playerTurn = 'O';
+    } else {
+        playerTurn = 'X';
+    }
+  }
 
-function ticTacToe(row, column) {
-  // Your code here
-}
 
 function getPrompt() {
   printBoard();
