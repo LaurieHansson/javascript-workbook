@@ -39,14 +39,14 @@ const rl = readline.createInterface({
 });
 
 
-function rockPaperScissors(PlayerHandOnehand1, hand2) {
+function rockPaperScissors(hand1, hand2) {
 
-  // Write code here  
-  //These two variables declare the two players.
-  const Hand1 = 0;
-  const Hand2 = 0;
+
+  // Here I'm declaring all possibilities between 
+  // hand 1 and hand 2 using && for comparisions and ||
+  // to divide next possible plays. 
   
-  if (Hand1 == 'rock' && Hand2 == 'paper' || Hand1 === 'paper' && Hand2 == 'scissors' || Hand1 == 'scissors' && Hand2 == 'rock') {
+  if (Hand1 == 'paper' && Hand2 == 'rock' || Hand1 === 'scissors' && Hand2 == 'paper' || Hand1 == 'rock' && Hand2 == 'scissors') {
     return "hand one wins!"
   }else if (Hand1 == 'scissors' && Hand2 == 'rock' || Hand1 == 'rock' && Hand2 == 'paper' || Hand1 == 'scissors' && Hand2 == 'paper') {
   return "hand two wins!"}
