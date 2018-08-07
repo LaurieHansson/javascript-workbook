@@ -1,7 +1,16 @@
 'use strict';
+//GAME OVERVIEW:
+// Move the stack from the first tower to the last tower 
+// without having any higher value stack ontop of eachother 
+// (Stack Value must be in descending value of 4,3,2,1).
 
-// objective: Move four discs to either second to last or last  with the largest on bottom and 
-// the smallest ontop in the least amount of moves..
+
+// RULES OF THE GAME 
+// 1.) Larger value disc can not go ontop of a smaller 
+// value disc ex: 4 can not be ontop of 2
+// 2.) The discs must move from stack a to stack b or c 
+// with only one movement per play 
+
 
 // each stack defined under stacks variale 
 // each disc defined as a numerical unit 1,2,3 and 4. 
@@ -38,23 +47,34 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece(startStack,endStack) {
-  return stacks[startStack].pop(stacks[endStack].push());
-}
-
-function isLegal(startstack,endStack) {
-  endStack > startStack  || stacks[endStack].length == 0
-}
-
-function checkForWin() {
+const movePiece=(startStack,endStack)=> {
  
+  // Pop removes an item from the startStack and 
+  // the push on the endstack will take in the popped value 
+  // and apply it to endStack. 
+  console.log(stacks[startStack].slice(-1)[0],'hey');
+  return stacks[endStack].push(stacks[startStack].pop());
+  
+}
+
+
+const isLegal=(startStack,endStack)=> {
+// the move will be legal if the endstack is an empty array with no values 
+// applied to it 
+// if start stack C has 3 on it, and endStack B is 2,  
+  return stacks[endStack].push() === 0 || stacks[endStack].slice(-1)[0] > stacks[startStack].slice(-1)[0];
+}
+
+const checkForWin=()=> {
+ // if the length  is equal to 4 that is a valid win
   return stacks.c.length === 4 || stacks.b.length === 4;
 }
 
 
 
-function towersOfHanoi(startStack, endStack) {
-  //This function only runs movePiece if isLegal function is true. Will use checkFrWin to clear game.
+const towersOfHanoi=(startStack, endStack)=>{
+  // if legal, then call the move piece function 
+  // if it's NOT legal, than say "invalid play"
   if (isLegal(startStack, endStack)){
     movePiece(startStack, endStack)
   } else {
