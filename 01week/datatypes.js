@@ -19,13 +19,13 @@ today = mm + '/' + dd + '/' + yyyy;
 return today
 
 // 2. number to a string 
- function numToString(num) {
+ const numToString=(num)=> {
    return num.toString();
  }  numToString(10);
  
 
  // 3.  return a string to number 
-const stringToNumber=(string){
+const stringToNumber=(string)=>{
   return Number(string);
 }
 stringToNumber('900');
@@ -47,15 +47,13 @@ stringToNumber('900');
 
 // 7. one truth 
 const testingTruth=() => {
-
-
 if ( y> 10) {
   return "YES"
 } else {
   return "NO"
 }}
 
-const untrue(input1,input2) => {
+const untrue=(input1,input2) => {
   if(!input1 && !input2){
-  return "untrue"
+  return "flase"
   }}
