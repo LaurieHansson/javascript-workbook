@@ -1,26 +1,63 @@
 'use strict';
-
 const assert = require('assert');
 
-function forEach(arr, callback) {
-  // Your code here
+// was absent for this class so this might not be right but
+// commented to best ability! 
+
+
+
+const forEach=(arr, callback)=> {
+// a for loop to through all the items in the array
+  for (let x=0; x<arr.length; x++) {
+    // if callback parameter is provided call the callback function with the current array item as paramater.
+    if (callback) {
+      callback(arr[i]);
+    }
+  }
+}
+//  creates a new array with the results of calling a provided function on every element in the calling array.
+const map=(arr, callback)=> {
+  let returnArr = [];
+  // loop over every item in array
+  for (let x=0; x<arr.length; x++) {
+    // if callback parameter is provided
+    if (callback) {
+ // push newly created value to array
+      returnArr.push(callback(arr[i]));
+    }
+  }
+  return returnArr;
+}
+// creates a new array with all elements that pass the test implemented by the provided function.
+const filter=(arr, callback)=> {
+  let returnArr = [];
+  // loop over every item in array
+  for (let x=0; x<arr.length; x++) {
+    if (callback) {
+      // checks if the current array item returned from callback === current array item
+      const callbackReturn = callback(arr[i]);
+      // if callbackReturn = true, then push current item to returnArr
+      if ( callbackReturn ) {
+        returnArr.push(arr[i]);
+      }
+    }
+  }
+  // return new array
+  return returnArr;
 }
 
-function map(arr, callback) {
-  // Your code here
-}
 
-function filter(arr, callback) {
-  // Your code here
-}
+// const some = (arr, callback) => {
+//   return arr.some((num)=>{
+//     return callback(num)
+//   })
+// }
 
-function some(arr, callback) {
-  // Your code here
-}
-
-function every(arr, callback) {
-  // Your code here
-}
+// const every = (arr, callback) => {
+//   return arr.every((num)=>{
+//     return callback(num)
+//   })
+// }
 
 if (typeof describe === 'function') {
 
